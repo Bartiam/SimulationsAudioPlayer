@@ -10,7 +10,7 @@ bool is_correct_name_of_the_song(const std::string& nameOfTheSong)
 	return true;
 }
 
-bool is_correct_comman(const std::string& command)
+bool is_correct_command(const std::string& command)
 {
 	if (command != "Play" && command != "play" &&
 		command != "Pause" && command != "pause" &&
@@ -27,6 +27,7 @@ int main()
 	std::string is_play = " ";
 	std::string nameOfTheSong;
 	ThePlayer thePlayer;
+	thePlayer.setMusicList();
 
 	while (true)
 	{
@@ -63,7 +64,7 @@ int main()
 			is_play == "play" || is_play == "pause")
 			is_play = thePlayer.stop();
 		else if (command == "Exit" || command == "exit") return 0;
-		else if (!is_correct_comman(command))
+		else if (!is_correct_command(command))
 			std::cerr << "Error! You can enter only available commands. " <<
 			"\nList of available commands: " <<
 			"\nPlay, Pause, Next, Stop, Exit. " << std::endl;
